@@ -5,6 +5,9 @@
         <listener class-name="TestListeners"/>
     </listeners>
     <test name="Base-Test" thread-count="5">
+<!--        <packages>-->
+<!--            <package name="Tests"></package>-->
+<!--        </packages>-->
         <classes>
             <class name="Tests.MainTest"/>
         </classes>
