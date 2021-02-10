@@ -32,6 +32,7 @@ public class MainTest {
         wait = new WebDriverWait(driver, 10);
         iTestContext.setAttribute("driver",driver);
         driver.get("https://www.youtube.com/");
+        System.out.println("stam");
     }
 
     @AfterTest
