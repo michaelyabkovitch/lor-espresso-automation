@@ -31,7 +31,7 @@ public class MainTest {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 10);
         iTestContext.setAttribute("driver",driver);
-        driver.get("https://www.youtube.com/");
+        driver.get("https://www.lor-espresso.co.il/");
         System.out.println("stam");
     }
 
