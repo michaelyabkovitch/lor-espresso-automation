@@ -16,5 +16,20 @@ public class BasePage extends PageObject{
     }
 
     // WebElements definition
-
+    @FindBy(css = ".d-inline-block")
+    WebElement homePageButton;
+    @FindBy(id = "lor_capsule")
+    WebElement lorCapsule;
+    @FindBy(id = "jacobs_coffee")
+    WebElement jacobsCoffee;
+    @FindBy(id = "Illy_capsule")
+    WebElement illyCapsule;
+    @FindBy(id = "next_to_coffee")
+    WebElement nextToCoffee;
+    @FindBy(css = ".header-search")
+    WebElement searchButton;
+    @FindBy(css = ".header-cart")
+    WebElement cartButton;
+    @FindBy(css = ".btn.d-flex.p-0.p-lg-4.js-otpLogin")
+    WebElement helloGust;
 }
