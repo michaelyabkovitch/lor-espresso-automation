@@ -5,8 +5,6 @@ import com.aventstack.extentreports.service.ExtentTestManager;
 import net.bsmch.Screenshot;
 import org.testng.annotations.Test;
 
-import java.awt.*;
-
 public class NextToTheCoffeeTest extends MainTest {
     @Test
     public void enter() throws InterruptedException {

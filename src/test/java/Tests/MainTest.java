@@ -24,6 +24,7 @@ public class MainTest {
     final String PATH = "https://www.lor-espresso.co.il/";
     final String RECORD_PATH = "./records";
 
+    // Code section
     @BeforeTest
     public void initialize(ITestContext iTestContext) throws ATUTestRecorderException {
         recorder = new ATUTestRecorder(RECORD_PATH,
