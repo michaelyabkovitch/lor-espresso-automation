@@ -15,11 +15,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MainTest {
+    // Variables definition
+    public WebDriver driver;
+    public WebDriverWait wait;
     ATUTestRecorder recorder;
     DateFormat dateFormat = new SimpleDateFormat("yy-MM-dd HH-mm-ss");
     Date date = new Date();
-    public WebDriver driver;
-    public WebDriverWait wait;
+    final String PATH = "https://www.lor-espresso.co.il/";
     final String RECORD_PATH = "./records";
 
     @BeforeTest
@@ -30,12 +32,13 @@ public class MainTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 10);
-        iTestContext.setAttribute("driver",driver);
-        driver.get("https://www.lor-espresso.co.il/");
-        System.out.println("stam");
+        iTestContext.setAttribute("driver", driver);
+        driver.get(PATH);
+        driver.manage().window().maximize();
     }
 
     @AfterTest
+
     public void quit() throws ATUTestRecorderException {
         if (driver != null) {
             driver.quit();
@@ -43,3 +46,4 @@ public class MainTest {
         }
     }
 }
+

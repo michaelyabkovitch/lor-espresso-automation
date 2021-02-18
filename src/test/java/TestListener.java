@@ -7,15 +7,17 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class TestListeners implements ITestListener {
+public class TestListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult iTestResult) {
         ExtentTestManager.createMethod(iTestResult);
+
     }
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
-        ExtentTestManager.log(iTestResult);
+        ExtentTestManager.getTest().log(Status.PASS,
+                iTestResult.getTestContext().getName() + " Test passed");
 
     }
 
