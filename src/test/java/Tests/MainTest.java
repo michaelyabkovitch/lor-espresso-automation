@@ -18,15 +18,17 @@ public class MainTest {
     // Variables definition
     public WebDriver driver;
     public WebDriverWait wait;
-    ATUTestRecorder recorder;
-    DateFormat dateFormat = new SimpleDateFormat("yy-MM-dd HH-mm-ss");
-    Date date = new Date();
     final String PATH = "https://www.lor-espresso.co.il/";
     final String RECORD_PATH = "./records";
+    ATUTestRecorder recorder;
+    Date date = new Date();
+    DateFormat dateFormat = new SimpleDateFormat("yy-MM-dd HH-mm-ss");
+    DirChecker dirChecker = new DirChecker();
 
     // Code section
     @BeforeTest
     public void initialize(ITestContext iTestContext) throws ATUTestRecorderException {
+        dirChecker.dirCreator();
         recorder = new ATUTestRecorder(RECORD_PATH,
                 "new record - " + dateFormat.format(date), false);
         recorder.start();
