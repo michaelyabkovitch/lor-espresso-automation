@@ -41,7 +41,6 @@ public class MainTest {
     }
 
     @AfterTest
-
     public void quit() throws ATUTestRecorderException {
         if (driver != null) {
             driver.quit();
