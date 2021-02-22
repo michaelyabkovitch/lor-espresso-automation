@@ -9,7 +9,7 @@ public class ReportOpener {
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("excludeSwitches", new String[] {"enable-automation"});
         options.addArguments("--disable-notifications");
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver(options);
         driver.manage().window().fullscreen();
         String dir = System.getProperty("user.dir");
         driver.get("file:///" + dir + "\\test-output\\SparkReport\\index.html");
