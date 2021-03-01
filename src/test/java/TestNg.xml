@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Shirt Online Test">
+<suite name="lor-espresso-automation">
     <listeners>
         <listener class-name="TestListener"></listener>
     </listeners>
@@ -9,14 +9,20 @@
             <class name="Tests.MainTest"/>
         </classes>
     </test>
-    <test name="Next to the coffee">
+    <test name="Lore capsule">
         <classes>
-            <class name="Tests.NextToTheCoffeeTest"></class>
+            <class name="Tests.GuestTests.LorCapsuleTest"></class>
         </classes>
     </test>
-    <test name="ReportOpener">
+    <test name="Next to the coffee">
         <classes>
-            <class name="ReportOpener"></class>
+            <class name="Tests.GuestTests.NextToTheCoffeeTest"></class>
+        </classes>
+    </test>
+
+    <test name="UsefulClasses.ReportOpener">
+        <classes>
+            <class name="UsefulClasses.ReportOpener"></class>
         </classes>
     </test>
 </suite>

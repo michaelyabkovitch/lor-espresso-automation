@@ -11,7 +11,6 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult iTestResult) {
         ExtentTestManager.createMethod(iTestResult);
-
     }
 
     @Override
