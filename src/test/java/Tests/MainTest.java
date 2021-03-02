@@ -1,6 +1,8 @@
 package Tests;
 
+
 import UsefulClasses.MainFunctions;
+
 import atu.testrecorder.ATUTestRecorder;
 import atu.testrecorder.exceptions.ATUTestRecorderException;
 import org.openqa.selenium.WebDriver;
@@ -13,11 +15,14 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.w3c.dom.Document;
 
+
+import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MainTest {
+
     // Variables definition
     public static Document doc = null;
     public static ATUTestRecorder recorder;
@@ -40,6 +45,7 @@ public class MainTest {
     public void initialize(ITestContext iTestContext) throws ATUTestRecorderException {
         iTestContext.setAttribute("driver", driver);
         MainFunctions.initBrowser();
+
     }
 
     @AfterTest
@@ -51,4 +57,6 @@ public class MainTest {
     public void stopRecording() throws ATUTestRecorderException {
         recorder.stop();
     }
+
+
 }
