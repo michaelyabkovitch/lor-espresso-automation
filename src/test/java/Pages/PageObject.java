@@ -5,8 +5,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PageObject {
-    protected WebDriver driver;
-    protected WebDriverWait wait;
+    // Variable definition
+    protected static WebDriver driver;
+    protected static WebDriverWait wait;
 
     // Constructors
     public PageObject(WebDriver driver) {
