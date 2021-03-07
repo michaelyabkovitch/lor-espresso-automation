@@ -19,10 +19,4 @@
             <class name="Tests.GuestTests.NextToTheCoffeeTest"></class>
         </classes>
     </test>
-
-    <test name="UsefulClasses.ReportOpener">
-        <classes>
-            <class name="UsefulClasses.ReportOpener"></class>
-        </classes>
-    </test>
 </suite>
