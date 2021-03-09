@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,5 +38,9 @@ public class BasePage extends PageObject{
     // Functions
     public static void waitAndClick(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+    }
+
+    public static void jsClick(WebElement element) {
+        ((JavascriptExecutor)driver).executeScript("arguments[0].click();", element);
     }
 }
