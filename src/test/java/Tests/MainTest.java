@@ -54,8 +54,9 @@ public class MainTest {
     }
 
     @AfterSuite
-    public void stopRecording() throws ATUTestRecorderException {
+    public void finish() throws ATUTestRecorderException {
         recorder.stop();
+        MainFunctions.openReport();
     }
 
 

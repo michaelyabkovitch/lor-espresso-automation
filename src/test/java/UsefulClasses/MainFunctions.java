@@ -6,6 +6,7 @@ import atu.testrecorder.ATUTestRecorder;
 import atu.testrecorder.exceptions.ATUTestRecorderException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import javax.xml.parsers.DocumentBuilder;
@@ -52,8 +53,7 @@ public class MainFunctions extends MainTest {
     }
 
     public static void startRecording() throws ATUTestRecorderException{
-        DirChecker dirChecker = new DirChecker();
-        dirChecker.dirCreator();
+        dirCreator();
                 if(!recorderStart) {
             recorder = new ATUTestRecorder(RECORD_PATH,
                 "new record - " + dateFormat.format(date), false);
@@ -65,6 +65,23 @@ public class MainFunctions extends MainTest {
     public static void closeSession() throws ATUTestRecorderException {
         if (driver != null) {
             driver.quit();
+        }
+    }
+
+    public static void openReport() {
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("excludeSwitches", new String[] {"enable-automation"});
+        options.addArguments("--disable-notifications");
+        WebDriver driver = new ChromeDriver(options);
+        driver.manage().window().fullscreen();
+        String dir = System.getProperty("user.dir");
+        driver.get("file:///" + dir + "\\test-output\\SparkReport\\index.html");
+    }
+
+    public static void dirCreator () {
+        File dir = new File("./records");
+        if (!dir.exists()){
+            dir.mkdir();
         }
     }
 }
