@@ -9,14 +9,14 @@
             <class name="Tests.MainTest"/>
         </classes>
     </test>
-    <test name="Lore capsule">
+    <test name="Lor capsule">
         <classes>
             <class name="Tests.GuestTests.LorCapsuleTest"></class>
         </classes>
     </test>
-    <test name="Next to the coffee">
-        <classes>
-            <class name="Tests.GuestTests.NextToTheCoffeeTest"></class>
-        </classes>
-    </test>
+<!--    <test name="Next to the coffee">-->
+<!--        <classes>-->
+<!--            <class name="Tests.GuestTests.NextToTheCoffeeTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>

@@ -5,11 +5,9 @@ import Tests.MainTest;
 import org.testng.annotations.Test;
 
 public class LorCapsuleTest extends MainTest {
-
-   // @BeforeClass
     @Test
-    public void enterToPage() {
+    public void lorTesting() {
         LorCapsulePage lorCapsulePage = new LorCapsulePage(driver);
-        lorCapsulePage.enterToLorPage();
+        lorCapsulePage.lorTest();
     }
 }
