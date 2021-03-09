@@ -53,13 +53,13 @@ public class LorCapsulePage extends BasePage {
 
     // Functions
     public void lorTest() {
-        enterToLorPage();
+        enterToPage();
         addToCart();
         nameCompere();
         removeItem();
     }
 
-    private void enterToLorPage() {
+    private void enterToPage() {
         LorCapsulePage.waitAndClick(lorCapsulePage);
     }
 
