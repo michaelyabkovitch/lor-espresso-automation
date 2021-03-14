@@ -23,7 +23,7 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
-        ExtentTestManager.getTest().log(Status.PASS,
+        ExtentTestManager.getTest().log(Status.FAIL,
                 iTestResult.getTestContext().getName() + " Test failed");
         ExtentTestManager.getTest().info("screenshot" ,Screenshot.captureScreen("fail", MainTest.driver));
 
