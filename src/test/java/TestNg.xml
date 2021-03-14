@@ -9,9 +9,10 @@
             <class name="Tests.MainTest"/>
         </classes>
     </test>
-    <test name="Lor capsule">
+    <test name="Coffee pages">
         <classes>
             <class name="Tests.GuestTests.LorCapsuleTest"></class>
+            <class name="Tests.GuestTests.JacobsTest"></class>
         </classes>
     </test>
 <!--    <test name="Next to the coffee">-->
