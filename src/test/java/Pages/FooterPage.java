@@ -1,7 +1,6 @@
 package Pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,9 +10,8 @@ import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-public class FooterPage  extends BasePage {
+public class FooterPage extends BasePage {
     public FooterPage(WebDriver driver) {
 
         super(driver);
@@ -25,77 +23,74 @@ public class FooterPage  extends BasePage {
 
 
     // WebElements definition
-    @FindBy (name = "contactFirstName" )
+    @FindBy(name = "contactFirstName")
     WebElement contactFirstName;
-    @FindBy (name = "contactLastName" )
+    @FindBy(name = "contactLastName")
     WebElement contactLastName;
-    @FindBy (name = "contactEmail" )
+    @FindBy(name = "contactEmail")
     WebElement contactEmail;
-    @FindBy (name = "contactComment")
+    @FindBy(name = "contactComment")
     WebElement contactComment;
-    @FindBy (className = "list-item")
-    List<WebElement> listIteml ;
-    @FindBy (id  = "contact-topic")
+    @FindBy(className = "list-item")
+    List<WebElement> listIteml;
+    @FindBy(id = "contact-topic")
     WebElement contactTopicDropDownMenu;
 
     //
     @FindBy(className = "faq-title")
     WebElement title;
 
+    @FindBy(css = ".page-title span")
+    WebElement byTitle;
 
     // Variable definition
     SoftAssert softAssert = new SoftAssert();
 
 
-    private  String returnWebElement(String value) throws InterruptedException {
+    private String returnWebElement(String value) {
         js.executeScript("window.scrollBy(0,5000)");
         String element = null;
-        for (int i = 0; i < listIteml.size(); i++) {
-            if (listIteml.get(i).getText().equalsIgnoreCase(value)) {
-                element = listIteml.get(i).getText();
-                System.out.println(listIteml.get(i).getText());
+        for (WebElement webElement : listIteml) {
+            if (webElement.getText().equalsIgnoreCase(value)) {
+                element = webElement.getText();
+                System.out.println(webElement.getText());
                 break;
             }
         }
         return element;
     }
-    public   void getLinkValue( String value) throws InterruptedException {
+
+    public void getLinkValue(String value) {
         waitAndClick(driver.findElement(By.partialLinkText(returnWebElement(value))));
 
     }
 
 
-    public void ContactUsFormFill () throws InterruptedException {
+    public void ContactUsFormFill() {
         getLinkValue("צרו קשר");
-        FooterPage.sendKeys(contactFirstName,"Test");
+        FooterPage.sendKeys(contactFirstName, "Test");
         FooterPage.sendKeys(contactLastName, "Test");
         FooterPage.sendKeys(contactEmail, "Test@gmail.com");
         Select mySelection = new Select(contactTopicDropDownMenu);
         mySelection.selectByValue("ביטול הזמנה");
-        FooterPage.sendKeys(contactComment,"Test Test Test");
-
+        FooterPage.sendKeys(contactComment, "Test Test Test");
 
 
     }
 
 
-    public void footerLinkTest () throws InterruptedException {
+    public void footerLinkTest() {
         getLinkValue("המחירים באתר אינם כוללים דמי משלוח");
-        Assert.assertEquals(getTitle(),"המחירים באתר אינם כוללים דמי משלוח");
-        Assert.assertEquals(getTitle(),"המחירים באתר אינם כוללים דמי משלוח");
+        Assert.assertEquals(getTitle(), "המחירים באתר אינם כוללים דמי משלוח");
+        Assert.assertEquals(getTitle(), "המחירים באתר אינם כוללים דמי משלוח");
 
     }
 
-    public String getTitle (){
+    public String getTitle() {
         return title.getText();
-
-
-
-
     }
 
-
-
-
-
+    public String getByTitle() {
+        return byTitle.getText();
+    }
 }
