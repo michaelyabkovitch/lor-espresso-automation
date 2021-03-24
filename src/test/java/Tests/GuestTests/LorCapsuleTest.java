@@ -10,4 +10,5 @@ public class LorCapsuleTest extends MainTest {
         LorCapsulePage lorCapsulePage = new LorCapsulePage(driver);
         lorCapsulePage.lorTest();
     }
+
 }

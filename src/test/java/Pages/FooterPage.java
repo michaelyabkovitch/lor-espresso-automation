@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -42,6 +43,15 @@ public class FooterPage extends BasePage {
 
     @FindBy(css = ".page-title span")
     WebElement byTitle;
+    //הרשמה לרשימת תפוצה
+    @FindBy(name = "hpEmailSignUp")
+    WebElement hpEmailSignUp;
+    @FindBy(className = "custom-control-label")
+    WebElement customControlLabel;
+    @FindBy(className = "affirm")
+    WebElement acceptBtn;
+    @FindBy(className = "subscribe-email")
+    WebElement subscribeEmail;
 
     // Variable definition
     SoftAssert softAssert = new SoftAssert();
@@ -63,6 +73,22 @@ public class FooterPage extends BasePage {
     public void getLinkValue(String value) {
         waitAndClick(driver.findElement(By.partialLinkText(returnWebElement(value))));
 
+    }
+
+    public void hpc(String mail) {
+        String ecpected = null;
+        acceptBtn.click();
+        hpEmailSignUp.sendKeys(mail);
+        BasePage.waitAndClick(customControlLabel);
+        subscribeEmail.click();
+        try {
+            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".col-11.text-right.pr-0")));
+            ecpected = element.getText();
+            System.out.println(ecpected);
+        } catch (Throwable e) {
+            System.err.println("Error not object found for comparison: " + e.getMessage());
+        }
+        Assert.assertEquals(ecpected, "נרשמת בהצלחה לרשימת התפוצה");
     }
 
 

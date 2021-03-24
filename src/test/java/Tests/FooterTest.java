@@ -32,4 +32,8 @@ public class FooterTest extends MainTest {
 
         Assert.assertEquals(actualTitle, expectedTitle);
     }
+    @Test
+    public void emailConsent(){
+        FooterPage.hpEmailSignUp("test22@gmail.com");
+    }
 }
