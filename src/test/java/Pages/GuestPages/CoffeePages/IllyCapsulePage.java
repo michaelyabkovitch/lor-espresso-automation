@@ -1,4 +1,4 @@
-package Pages.GuestPages;
+package Pages.GuestPages.CoffeePages;
 
 import Pages.BasePage;
 import com.aventstack.extentreports.Status;
@@ -6,27 +6,27 @@ import com.aventstack.extentreports.service.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
-
 
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
-public class LorCapsulePage extends BasePage {
+public class IllyCapsulePage extends BasePage {
     //Constructors
-    public LorCapsulePage(WebDriver driver) {
+    public IllyCapsulePage(WebDriver driver) {
         super(driver);
     }
 
-    public LorCapsulePage(WebDriver driver, WebDriverWait wait) {
+    public IllyCapsulePage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
 
     // WebElements definition
-    @FindBy(id = "lor_capsule")
-    WebElement lorCapsulePage;
+    @FindBy(id = "Illy_capsule")
+    WebElement illyCapsulePage;
     @FindBy(css = ".minicart.header-nav.header-cart")
     WebElement cartMenu;
     @FindBy(css = ".hidden-md-down.remove-line-item-lg")
@@ -52,7 +52,7 @@ public class LorCapsulePage extends BasePage {
     String stringProductNme;
 
     // Functions
-    public void lorTest() {
+    public void illyTest() {
         enterToPage();
         addToCart();
         nameCompere();
@@ -60,15 +60,16 @@ public class LorCapsulePage extends BasePage {
     }
 
     private void enterToPage() {
-        LorCapsulePage.waitAndClick(lorCapsulePage);
+        IllyCapsulePage.waitAndClick(illyCapsulePage);
     }
 
     private void addToCart() {
         int product = random.nextInt(lorProducts.size());
         wait.until(ExpectedConditions.visibilityOfAllElements(lorProducts));
-        LorCapsulePage.jsClick(addToCartButton.get(product));
+        IllyCapsulePage.jsClick(addToCartButton.get(product));
         stringProductNme = productName.get(product).getText();
         ExtentTestManager.getTest().log(Status.INFO,"You ordered: " + stringProductNme );
+        driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
     }
 
     private void nameCompere() {
@@ -79,10 +80,17 @@ public class LorCapsulePage extends BasePage {
 
     public void removeItem () {
         removeButtonWindow.click();
-        LorCapsulePage.waitAndClick(cancelButton.get(3));
-        LorCapsulePage.waitAndClick(removeButtonWindow);
-        LorCapsulePage.waitAndClick(removeButton.get(1));
+        IllyCapsulePage.waitAndClick(cancelButton.get(3));
+        IllyCapsulePage.waitAndClick(removeButtonWindow);
+        IllyCapsulePage.waitAndClick(removeButton.get(1));
         softAssert.assertTrue(emptyPage.getText().contains("סל הקניות שלך ריק"));
         softAssert.assertAll();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 }
+
+
+
+
+
+
