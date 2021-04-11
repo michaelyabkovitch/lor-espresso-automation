@@ -18,13 +18,13 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
         ExtentTestManager.getTest().log(Status.PASS,
-                iTestResult.getTestContext().getName() + " Test passed");
+                iTestResult.getName() + " Test passed");
     }
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
         ExtentTestManager.getTest().log(Status.FAIL,
-                iTestResult.getTestContext().getName() + " Test failed");
+                iTestResult.getName() + " Test failed");
         ExtentTestManager.getTest().info("screenshot" ,Screenshot.captureScreen("fail", MainTest.driver));
 
     }
