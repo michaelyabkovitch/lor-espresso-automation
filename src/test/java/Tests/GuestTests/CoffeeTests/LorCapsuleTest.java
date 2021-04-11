@@ -1,6 +1,6 @@
-package Tests.GuestTests;
+package Tests.GuestTests.CoffeeTests;
 
-import Pages.GuestPages.LorCapsulePage;
+import Pages.GuestPages.CoffeePages.LorCapsulePage;
 import Tests.MainTest;
 import org.testng.annotations.Test;
 
