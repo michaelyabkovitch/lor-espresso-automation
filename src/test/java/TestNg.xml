@@ -20,7 +20,12 @@
     <test name="Order tests">
         <classes>
             <class name="Tests.GuestTests.OrderTests.DeliveryDetailsTest"></class>
-            <class name="Tests.GuestTests.OrderTests.CardPaymentTest"></class>
+<!--            <class name="Tests.GuestTests.OrderTests.CardPaymentTest"></class>-->
+        </classes>
+    </test>
+    <test name="Search test">
+        <classes>
+            <class name="Tests.GuestTests.SearchBoxTest"></class>
         </classes>
     </test>
 </suite>

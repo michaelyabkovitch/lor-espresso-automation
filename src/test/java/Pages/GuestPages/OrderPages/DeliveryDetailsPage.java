@@ -98,7 +98,7 @@ public class DeliveryDetailsPage extends BasePage {
         addressApartmentField.sendKeys("2");
         floorField.sendKeys("1");
         addressCommentsField.sendKeys("TestComments");
-        submit.click();
+        DeliveryDetailsPage.jsClick(submit);
 
     }
 
