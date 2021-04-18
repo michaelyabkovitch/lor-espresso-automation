@@ -1,4 +1,4 @@
-package Pages.GuestPages;
+package Pages.GuestPages.CoffeePages;
 
 import Pages.BasePage;
 import com.aventstack.extentreports.Status;
