@@ -53,12 +53,13 @@ public class TestListener implements ITestListener, IAnnotationTransformer {
         ExtentService.getInstance().flush();
     }
 
-    @Override
-    public void transform(ITestAnnotation testAnnotation, Class testClass, Constructor testConstructor, Method testMethod) {
-        IRetryAnalyzer retry = testAnnotation.getRetryAnalyzer();
 
-        if (retry == null) {
-            testAnnotation.setRetryAnalyzer(RetryFailedTestCases.class);
-        }
-    }
+//    @Override
+//    public void transform(ITestAnnotation testAnnotation, Class testClass, Constructor testConstructor, Method testMethod) {
+//        IRetryAnalyzer retry = testAnnotation.getRetryAnalyzer();
+//
+//        if (retry == null) {
+//            testAnnotation.setRetryAnalyzer(RetryFailedTestCases.class);
+//        }
+//    }
 }

@@ -9,6 +9,7 @@ public class LorCapsuleTest extends MainTest {
     public void lorTesting() {
         LorCapsulePage lorCapsulePage = new LorCapsulePage(driver);
         lorCapsulePage.lorTest();
+
     }
 
 }

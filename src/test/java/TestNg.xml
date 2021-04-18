@@ -4,16 +4,16 @@
     <listeners>
         <listener class-name="TestListener"/>
     </listeners>
-    <test name="Base Test" thread-count="5">
-        <classes>
-            <class name="Tests.MainTest"/>
-        </classes>
-    </test>
-    <test name="Lor capsule">
-        <classes>
-            <class name="Tests.GuestTests.LorCapsuleTest"/>
-        </classes>
-    </test>
+<!--    <test name="Base Test" thread-count="5">-->
+<!--        <classes>-->
+<!--            <class name="Tests.MainTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="Lor capsule">-->
+<!--        <classes>-->
+<!--            <class name="Tests.GuestTests.LorCapsuleTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
     <test name="Footer">
         <classes>
             <class name="Tests.FooterTest"/>

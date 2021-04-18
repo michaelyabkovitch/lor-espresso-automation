@@ -11,6 +11,7 @@ import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class FooterPage extends BasePage {
     public FooterPage(WebDriver driver) {
@@ -36,6 +37,8 @@ public class FooterPage extends BasePage {
     List<WebElement> listIteml;
     @FindBy(id = "contact-topic")
     WebElement contactTopicDropDownMenu;
+    @FindBy(className = "faq-question")
+    List<WebElement>  questions ;
 
     //
     @FindBy(className = "faq-title")
@@ -43,6 +46,7 @@ public class FooterPage extends BasePage {
 
     @FindBy(css = ".page-title span")
     WebElement byTitle;
+
     //הרשמה לרשימת תפוצה
     @FindBy(name = "hpEmailSignUp")
     WebElement hpEmailSignUp;
@@ -75,7 +79,7 @@ public class FooterPage extends BasePage {
 
     }
 
-    public void hpc(String mail) {
+    public void hpEmailSignUp(String mail) {
         String ecpected = null;
         acceptBtn.click();
         hpEmailSignUp.sendKeys(mail);
@@ -109,6 +113,32 @@ public class FooterPage extends BasePage {
         getLinkValue("המחירים באתר אינם כוללים דמי משלוח");
         Assert.assertEquals(getTitle(), "המחירים באתר אינם כוללים דמי משלוח");
         Assert.assertEquals(getTitle(), "המחירים באתר אינם כוללים דמי משלוח");
+
+    }
+
+//    public void FrequentlyAskedQuestionsCheckV2 (){
+//        getLinkValue("שאלות נפוצות");
+//        questions.forEach((question)->{
+//            try {
+//                TimeUnit.SECONDS.sleep(1);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            jsClick(question);
+//        });
+//    }
+
+    public void FrequentlyAskedQuestionsCheck (){
+        getLinkValue("שאלות נפוצות");
+        System.out.println(questions.size());
+        for(WebElement element : questions){
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            jsClick(element);
+        }
 
     }
 
