@@ -1,4 +1,4 @@
-package Pages.GuestPages;
+package Pages.GuestPages.CoffeePages;
 
 import Pages.BasePage;
 import com.aventstack.extentreports.Status;
@@ -6,27 +6,27 @@ import com.aventstack.extentreports.service.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
-
 
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
-public class LorCapsulePage extends BasePage {
+public class JacobsPage extends BasePage {
     //Constructors
-    public LorCapsulePage(WebDriver driver) {
+    public JacobsPage(WebDriver driver) {
         super(driver);
     }
 
-    public LorCapsulePage(WebDriver driver, WebDriverWait wait) {
+    public JacobsPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
 
-    // WebElements definition
-    @FindBy(id = "lor_capsule")
-    WebElement lorCapsulePage;
+    // WebElement definition
+    @FindBy(id = "jacobs_coffee")
+    WebElement jacobsButton;
     @FindBy(css = ".minicart.header-nav.header-cart")
     WebElement cartMenu;
     @FindBy(css = ".hidden-md-down.remove-line-item-lg")
@@ -38,7 +38,7 @@ public class LorCapsulePage extends BasePage {
     @FindBy(css = ".line-item-name")
     List<WebElement>cartProductName;
     @FindBy(css = ".container.product-tile.d-flex.h-100.flex-column")
-    List<WebElement> lorProducts;
+    List<WebElement> jacobsProducts;
     @FindBy(css = ".add-to-cart.btn.btn-primary")
     List<WebElement> addToCartButton;
     @FindBy(className = "pdp-link")
@@ -52,7 +52,7 @@ public class LorCapsulePage extends BasePage {
     String stringProductNme;
 
     // Functions
-    public void lorTest() {
+    public void jacobsTest() {
         enterToPage();
         addToCart();
         nameCompere();
@@ -60,15 +60,16 @@ public class LorCapsulePage extends BasePage {
     }
 
     private void enterToPage() {
-        LorCapsulePage.waitAndClick(lorCapsulePage);
+        LorCapsulePage.waitAndClick(jacobsButton);
     }
 
     private void addToCart() {
-        int product = random.nextInt(lorProducts.size());
-        wait.until(ExpectedConditions.visibilityOfAllElements(lorProducts));
+        int product = random.nextInt(jacobsProducts.size());
+        wait.until(ExpectedConditions.visibilityOfAllElements(jacobsProducts));
         LorCapsulePage.jsClick(addToCartButton.get(product));
         stringProductNme = productName.get(product).getText();
         ExtentTestManager.getTest().log(Status.INFO,"You ordered: " + stringProductNme );
+        driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
     }
 
     private void nameCompere() {
@@ -77,7 +78,7 @@ public class LorCapsulePage extends BasePage {
         softAssert.assertAll();
     }
 
-    public void removeItem () {
+    public void removeItem() {
         removeButtonWindow.click();
         LorCapsulePage.waitAndClick(cancelButton.get(3));
         LorCapsulePage.waitAndClick(removeButtonWindow);

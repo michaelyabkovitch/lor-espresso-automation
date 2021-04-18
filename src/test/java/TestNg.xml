@@ -9,14 +9,23 @@
             <class name="Tests.MainTest"/>
         </classes>
     </test>
-    <test name="Lor capsule">
+    <test name="Coffee tests">
         <classes>
-            <class name="Tests.GuestTests.LorCapsuleTest"></class>
+            <class name="Tests.GuestTests.CoffeeTests.LorCapsuleTest"></class>
+            <class name="Tests.GuestTests.CoffeeTests.JacobsTest"></class>
+<!--            <class name="Tests.GuestTests.CoffeeTests.IllyCapsuleTest"></class>-->
+            <class name="Tests.GuestTests.CoffeeTests.NextToTheCoffeeTest"></class>
         </classes>
     </test>
-<!--    <test name="Next to the coffee">-->
-<!--        <classes>-->
-<!--            <class name="Tests.GuestTests.NextToTheCoffeeTest"></class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Order tests">
+        <classes>
+            <class name="Tests.GuestTests.OrderTests.DeliveryDetailsTest"></class>
+<!--            <class name="Tests.GuestTests.OrderTests.CardPaymentTest"></class>-->
+        </classes>
+    </test>
+    <test name="Search test">
+        <classes>
+            <class name="Tests.GuestTests.SearchBoxTest"></class>
+        </classes>
+    </test>
 </suite>
