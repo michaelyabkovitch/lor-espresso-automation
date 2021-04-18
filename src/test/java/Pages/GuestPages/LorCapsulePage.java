@@ -55,15 +55,15 @@ public class LorCapsulePage extends BasePage {
     public void lorTest() {
         enterToPage();
         addToCart();
-        nameCompere();
-        removeItem();
+//        nameCompere();
+//        removeItem();
     }
 
     private void enterToPage() {
         LorCapsulePage.waitAndClick(lorCapsulePage);
     }
 
-    private void addToCart() {
+    public void addToCart() {
         int product = random.nextInt(lorProducts.size());
         wait.until(ExpectedConditions.visibilityOfAllElements(lorProducts));
         LorCapsulePage.jsClick(addToCartButton.get(product));

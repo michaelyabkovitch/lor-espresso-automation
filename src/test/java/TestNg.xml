@@ -2,21 +2,26 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="lor-espresso-automation">
     <listeners>
-        <listener class-name="TestListener"></listener>
+        <listener class-name="TestListener"/>
     </listeners>
-    <test name="Base Test" thread-count="5">
-        <classes>
-            <class name="Tests.MainTest"/>
-        </classes>
-    </test>
-    <test name="Lor capsule">
-        <classes>
-            <class name="Tests.GuestTests.LorCapsuleTest"></class>
-        </classes>
-    </test>
-<!--    <test name="Next to the coffee">-->
+<!--    <test name="Base Test" thread-count="5">-->
 <!--        <classes>-->
-<!--            <class name="Tests.GuestTests.NextToTheCoffeeTest"></class>-->
+<!--            <class name="Tests.MainTest"/>-->
 <!--        </classes>-->
 <!--    </test>-->
+<!--    <test name="Lor capsule">-->
+<!--        <classes>-->
+<!--            <class name="Tests.GuestTests.LorCapsuleTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+    <test name="Footer">
+        <classes>
+            <class name="Tests.FooterTest"/>
+        </classes>
+    </test>
+    <!--    <test name="Next to the coffee">-->
+    <!--        <classes>-->
+    <!--            <class name="Tests.GuestTests.NextToTheCoffeeTest"></class>-->
+    <!--        </classes>-->
+    <!--    </test>-->
 </suite>
