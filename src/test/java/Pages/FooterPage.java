@@ -1,5 +1,6 @@
 package Pages;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -140,6 +141,25 @@ public class FooterPage extends BasePage {
             jsClick(element);
         }
 
+    }
+    public void hpEmailSignUp() {
+        String mail="@gmail.com";
+        String generatedString = RandomStringUtils.randomAlphabetic(6);
+        System.out.println(generatedString + mail);
+        String expected = null;
+        acceptBtn.click();
+        hpEmailSignUp.sendKeys(generatedString+mail);
+        BasePage.waitAndClick(customControlLabel);
+        subscribeEmail.click();
+        try {
+            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".col-11.text-right.pr-0")));
+            expected = element.getText();
+            System.out.println(expected);
+        }
+        catch (Throwable e) {
+            System.err.println("Error not object found for comparison: " + e.getMessage());
+        }
+        Assert.assertEquals(expected, "נרשמת בהצלחה לרשימת התפוצה");
     }
 
     public String getTitle() {
