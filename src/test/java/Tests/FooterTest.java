@@ -33,7 +33,7 @@ public class FooterTest extends MainTest {
         Assert.assertEquals(actualTitle, expectedTitle);
     }
 
-    
+
     @Test
     public void ContactUsFormFill(){
         FooterPage.ContactUsFormFill();
@@ -48,9 +48,4 @@ public class FooterTest extends MainTest {
     public void emailConsent(){
         FooterPage.hpEmailSignUp();
     }
-//    @Test
-//    public void QuestionsCheck2() {
-//        FooterPage.FrequentlyAskedQuestionsCheckV2();
-//
-//    }
 }
