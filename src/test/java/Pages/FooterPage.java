@@ -80,21 +80,6 @@ public class FooterPage extends BasePage {
 
     }
 
-    public void hpEmailSignUp(String mail) {
-        String ecpected = null;
-        acceptBtn.click();
-        hpEmailSignUp.sendKeys(mail);
-        BasePage.waitAndClick(customControlLabel);
-        subscribeEmail.click();
-        try {
-            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".col-11.text-right.pr-0")));
-            ecpected = element.getText();
-            System.out.println(ecpected);
-        } catch (Throwable e) {
-            System.err.println("Error not object found for comparison: " + e.getMessage());
-        }
-        Assert.assertEquals(ecpected, "נרשמת בהצלחה לרשימת התפוצה");
-    }
 
 
     public void ContactUsFormFill() {
@@ -110,24 +95,7 @@ public class FooterPage extends BasePage {
     }
 
 
-    public void footerLinkTest() {
-        getLinkValue("המחירים באתר אינם כוללים דמי משלוח");
-        Assert.assertEquals(getTitle(), "המחירים באתר אינם כוללים דמי משלוח");
-        Assert.assertEquals(getTitle(), "המחירים באתר אינם כוללים דמי משלוח");
 
-    }
-
-//    public void FrequentlyAskedQuestionsCheckV2 (){
-//        getLinkValue("שאלות נפוצות");
-//        questions.forEach((question)->{
-//            try {
-//                TimeUnit.SECONDS.sleep(1);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//            jsClick(question);
-//        });
-//    }
 
     public void FrequentlyAskedQuestionsCheck (){
         getLinkValue("שאלות נפוצות");

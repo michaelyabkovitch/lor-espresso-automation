@@ -22,7 +22,7 @@ public class TestListener implements ITestListener, IAnnotationTransformer {
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
         ExtentTestManager.getTest().log(Status.PASS,
-                iTestResult.getTestContext().getName() + " Test passed");
+                iTestResult.getName() + " Test passed");
     }
 
     @Override
