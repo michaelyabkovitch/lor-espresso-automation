@@ -55,8 +55,8 @@ public class LorCapsulePage extends BasePage {
     public void lorTest() {
         enterToPage();
         addToCart();
-//        nameCompere();
-//        removeItem();
+        nameCompere();
+        removeItem();
     }
 
     private void enterToPage() {

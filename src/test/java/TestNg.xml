@@ -23,9 +23,10 @@
 <!--            <class name="Tests.GuestTests.OrderTests.CardPaymentTest"></class>-->
         </classes>
     </test>
-    <test name="Search test">
+    <test name="Search and footer">
         <classes>
             <class name="Tests.GuestTests.SearchBoxTest"></class>
+            <class name="Tests.FooterTest"></class>
         </classes>
     </test>
 </suite>
