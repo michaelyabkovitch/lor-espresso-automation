@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class JacobsTest extends MainTest {
     @Test
-    public void jacobsTesting() {
+    public void jacobsTesting() throws InterruptedException {
         JacobsPage jacobsPage = new JacobsPage(driver);
         jacobsPage.jacobsTest();
     }

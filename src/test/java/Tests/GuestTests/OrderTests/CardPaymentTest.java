@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class CardPaymentTest extends MainTest {
     @Test
-    public void cardPaymentTesting(){
+    public void cardPaymentTesting() throws InterruptedException {
         CardPaymentPage cardPaymentPage = new CardPaymentPage(driver, wait);
         cardPaymentPage.startPaymentTest();
     }

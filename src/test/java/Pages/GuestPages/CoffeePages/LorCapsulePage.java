@@ -13,6 +13,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class LorCapsulePage extends BasePage {
     //Constructors
@@ -27,6 +28,10 @@ public class LorCapsulePage extends BasePage {
     // WebElements definition
     @FindBy(id = "lor_capsule")
     WebElement lorCapsulePage;
+    @FindBy(partialLinkText = "המשך קריאה")
+    WebElement continueRead;
+    @FindBy(partialLinkText = "סגירה")
+    WebElement close;
     @FindBy(css = ".minicart.header-nav.header-cart")
     WebElement cartMenu;
     @FindBy(css = ".hidden-md-down.remove-line-item-lg")
@@ -52,8 +57,9 @@ public class LorCapsulePage extends BasePage {
     String stringProductNme;
 
     // Functions
-    public void lorTest() {
+    public void lorTest() throws InterruptedException {
         enterToPage();
+        continueAndClose();
         addToCart();
         nameCompere();
         removeItem();
@@ -63,12 +69,20 @@ public class LorCapsulePage extends BasePage {
         LorCapsulePage.waitAndClick(lorCapsulePage);
     }
 
+    private void continueAndClose() throws InterruptedException {
+        LorCapsulePage.waitAndClick(continueRead);
+        Thread.sleep(3000);
+        LorCapsulePage.waitAndClick(close);
+    }
+
     public void addToCart() {
         int product = random.nextInt(lorProducts.size());
         wait.until(ExpectedConditions.visibilityOfAllElements(lorProducts));
         LorCapsulePage.jsClick(addToCartButton.get(product));
         stringProductNme = productName.get(product).getText();
         ExtentTestManager.getTest().log(Status.INFO,"You ordered: " + stringProductNme );
+        driver.manage().timeouts().implicitlyWait(100000, TimeUnit.SECONDS);
+
     }
 
     private void nameCompere() {

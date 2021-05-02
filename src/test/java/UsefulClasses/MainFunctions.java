@@ -4,6 +4,7 @@ import Tests.MainTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import atu.testrecorder.ATUTestRecorder;
 import atu.testrecorder.exceptions.ATUTestRecorderException;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.concurrent.TimeUnit;
 
 
@@ -37,13 +39,18 @@ public class MainFunctions extends MainTest {
         return doc.getElementsByTagName(value).item(0).getTextContent();
     }
 
-    public static void initBrowser() throws ATUTestRecorderException {
+    public static void initBrowser() {
         driver = initChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         wait = new WebDriverWait(driver,10);
         driver.get(PATH);
         actions =new Actions(driver);
+        accept();
+    }
+
+    public static void accept() {
+        wait.until(ExpectedConditions.elementToBeClickable(By.className("accept-btn"))).click();
     }
 
     public static WebDriver initChromeDriver() {

@@ -27,6 +27,10 @@ public class JacobsPage extends BasePage {
     // WebElement definition
     @FindBy(id = "jacobs_coffee")
     WebElement jacobsButton;
+    @FindBy(partialLinkText = "המשך קריאה")
+    WebElement continueRead;
+    @FindBy(partialLinkText = "סגירה")
+    WebElement close;
     @FindBy(css = ".minicart.header-nav.header-cart")
     WebElement cartMenu;
     @FindBy(css = ".hidden-md-down.remove-line-item-lg")
@@ -52,8 +56,9 @@ public class JacobsPage extends BasePage {
     String stringProductNme;
 
     // Functions
-    public void jacobsTest() {
+    public void jacobsTest() throws InterruptedException {
         enterToPage();
+        continueAndClose();
         addToCart();
         nameCompere();
         removeItem();
@@ -61,6 +66,12 @@ public class JacobsPage extends BasePage {
 
     private void enterToPage() {
         LorCapsulePage.waitAndClick(jacobsButton);
+    }
+
+    private void continueAndClose() throws InterruptedException {
+        LorCapsulePage.waitAndClick(continueRead);
+        Thread.sleep(3000);
+        LorCapsulePage.waitAndClick(close);
     }
 
     private void addToCart() {
@@ -73,6 +84,7 @@ public class JacobsPage extends BasePage {
     }
 
     private void nameCompere() {
+        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         cartMenu.click();
         softAssert.assertTrue(cartProductName.get(1).getText().contains(stringProductNme));
         softAssert.assertAll();

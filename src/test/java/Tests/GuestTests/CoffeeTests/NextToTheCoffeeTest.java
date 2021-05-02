@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class NextToTheCoffeeTest extends MainTest {
     @Test
-    public void nextToTheCoffeeTesting() throws InterruptedException {
+    public void nextToTheCoffeeTesting() {
         NextToTheCoffeePage nextToTheCoffeePage = new NextToTheCoffeePage(driver);
         nextToTheCoffeePage.nextToCoffeeTest();
     }

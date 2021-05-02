@@ -28,6 +28,10 @@ public class NextToTheCoffeePage extends BasePage {
     // WebElements definition
     @FindBy(id = "next_to_coffee")
     WebElement nextToCoffee;
+    @FindBy(partialLinkText = "המשך קריאה")
+    WebElement continueRead;
+    @FindBy(partialLinkText = "סגירה")
+    WebElement close;
     @FindBy(css = ".hidden-md-down.remove-line-item-lg")
     WebElement removeButtonWindow;
     @FindBy(css = ".minicart.header-nav.header-cart")
@@ -53,7 +57,7 @@ public class NextToTheCoffeePage extends BasePage {
     String stringProductNme;
 
     // Functions
-    public void nextToCoffeeTest() throws InterruptedException {
+    public void nextToCoffeeTest() {
         enterToPage();
         addToCart();
        // nameCompere();

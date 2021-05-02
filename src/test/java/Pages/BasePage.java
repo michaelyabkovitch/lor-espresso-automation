@@ -36,7 +36,6 @@ public class BasePage extends PageObject{
     WebElement helloGust;
 
     //declarations
-        //michael and elyassaf add 12/3/21
     JavascriptExecutor js = (JavascriptExecutor) driver;
 
     // Functions
