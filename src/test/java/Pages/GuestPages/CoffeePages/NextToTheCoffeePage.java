@@ -69,12 +69,23 @@ public class NextToTheCoffeePage extends BasePage {
     }
 
     private void addToCart() {
-        int product = random.nextInt(nextToProducts.size()-2);
+        int product = random.nextInt(nextToProducts.size()-1);
         wait.until(ExpectedConditions.visibilityOfAllElements(nextToProducts));
-        NextToTheCoffeePage.jsClick(addToCartButton.get(product));
-        stringProductNme = productName.get(product).getText();
-        ExtentTestManager.getTest().log(Status.INFO,"You ordered: " + stringProductNme );
-        driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
+
+        if (addToCartButton.get(product).isDisplayed()) {
+            NextToTheCoffeePage.jsClick(addToCartButton.get(product));
+            stringProductNme = productName.get(product).getText();
+            System.out.println(stringProductNme);
+            ExtentTestManager.getTest().log(Status.INFO,"You ordered: " + stringProductNme );
+            driver.manage().timeouts().implicitlyWait(100000, TimeUnit.SECONDS);
+        }
+        else {
+            NextToTheCoffeePage.jsClick(addToCartButton.get(product +1));
+            stringProductNme = productName.get(product+1).getText();
+            System.out.println(stringProductNme);
+            ExtentTestManager.getTest().log(Status.INFO,"You ordered: " + stringProductNme );
+            driver.manage().timeouts().implicitlyWait(100000, TimeUnit.SECONDS);
+        }
     }
 
 //    private void nameCompere() throws InterruptedException {
@@ -91,7 +102,7 @@ public class NextToTheCoffeePage extends BasePage {
     public void removeItem () {
         cartMenu.click();
         removeButtonWindow.click();
-        IllyCapsulePage.waitAndClick(cancelButton.get(3));
+        IllyCapsulePage.waitAndClick(cancelButton.get(2));
         IllyCapsulePage.waitAndClick(removeButtonWindow);
         IllyCapsulePage.waitAndClick(removeButton.get(1));
         softAssert.assertTrue(emptyPage.getText().contains("סל הקניות שלך ריק"));

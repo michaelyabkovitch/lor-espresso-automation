@@ -59,7 +59,7 @@ public class LorCapsulePage extends BasePage {
     // Functions
     public void lorTest() throws InterruptedException {
         enterToPage();
-        continueAndClose();
+        //continueAndClose();
         addToCart();
         nameCompere();
         removeItem();
@@ -76,13 +76,23 @@ public class LorCapsulePage extends BasePage {
     }
 
     public void addToCart() {
-        int product = random.nextInt(lorProducts.size());
+        int product = random.nextInt(lorProducts.size() -2);
         wait.until(ExpectedConditions.visibilityOfAllElements(lorProducts));
-        LorCapsulePage.jsClick(addToCartButton.get(product));
-        stringProductNme = productName.get(product).getText();
-        ExtentTestManager.getTest().log(Status.INFO,"You ordered: " + stringProductNme );
-        driver.manage().timeouts().implicitlyWait(100000, TimeUnit.SECONDS);
 
+        if (addToCartButton.get(product).isDisplayed()) {
+            LorCapsulePage.jsClick(addToCartButton.get(product));
+            stringProductNme = productName.get(product).getText();
+            System.out.println(stringProductNme);
+            ExtentTestManager.getTest().log(Status.INFO,"You ordered: " + stringProductNme );
+            driver.manage().timeouts().implicitlyWait(100000, TimeUnit.SECONDS);
+        }
+        else {
+            LorCapsulePage.jsClick(addToCartButton.get(product +1));
+            stringProductNme = productName.get(product+1).getText();
+            System.out.println(stringProductNme);
+            ExtentTestManager.getTest().log(Status.INFO,"You ordered: " + stringProductNme );
+            driver.manage().timeouts().implicitlyWait(100000, TimeUnit.SECONDS);
+        }
     }
 
     private void nameCompere() {
@@ -93,7 +103,7 @@ public class LorCapsulePage extends BasePage {
 
     public void removeItem () {
         removeButtonWindow.click();
-        LorCapsulePage.waitAndClick(cancelButton.get(3));
+        LorCapsulePage.waitAndClick(cancelButton.get(2));
         LorCapsulePage.waitAndClick(removeButtonWindow);
         LorCapsulePage.waitAndClick(removeButton.get(1));
         softAssert.assertTrue(emptyPage.getText().contains("סל הקניות שלך ריק"));
