@@ -61,9 +61,9 @@ public class MainFunctions extends MainTest {
 
     public static void startRecording() throws ATUTestRecorderException{
         dirCreator();
-                if(!recorderStart) {
+        if(!recorderStart) {
             recorder = new ATUTestRecorder(RECORD_PATH,
-                "new record - " + dateFormat.format(date), false);
+                    "new record - " + dateFormat.format(date), false);
             recorder.start();
         }
         recorderStart = true;

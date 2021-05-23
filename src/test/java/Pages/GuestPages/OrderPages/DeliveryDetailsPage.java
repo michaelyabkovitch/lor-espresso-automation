@@ -4,13 +4,13 @@ import Pages.BasePage;
 import Pages.GuestPages.CoffeePages.NextToTheCoffeePage;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.service.ExtentTestManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.Random;
@@ -51,7 +51,7 @@ public class DeliveryDetailsPage extends BasePage {
     WebElement addressCommentsField;
     @FindBy(css = ".minicart.header-nav.header-cart")
     WebElement cartMenu;
-    @FindBy(css =".btn.btn-primary.btn-block.submit-shipping")
+    @FindBy(css = ".btn.btn-primary.btn-block.submit-shipping")
     WebElement submit;
     @FindBy(css = ".btn.btn-block.btn-primary.checkout-as-guest")
     WebElement continueGuestButton;
@@ -70,7 +70,7 @@ public class DeliveryDetailsPage extends BasePage {
     String stringProductNme;
 
     // Functions
-    public void startOrderDetails(){
+    public void startOrderDetails() throws InterruptedException {
         startOrder();
         addToCart();
         continueOrder();
@@ -85,12 +85,12 @@ public class DeliveryDetailsPage extends BasePage {
         NextToTheCoffeePage.jsClick(continueGuestButton);
     }
 
-    public void orderItem(){
+    public void orderItem() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOf(firstNameField)).sendKeys("TestFirstName");
         lastNameField.sendKeys("TestLastName");
-        phoneNumberField.sendKeys("050-0000000");
+        phoneNumberField.sendKeys("0528876765");
         emailField.sendKeys("test@gmail.com");
-        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("document.getElementById('shippingAddressCitydefault').setAttribute('value', 'רחובות')");
         streetNameField.sendKeys("TestStreet");
         houseNumberField.sendKeys("10");
@@ -99,7 +99,7 @@ public class DeliveryDetailsPage extends BasePage {
         floorField.sendKeys("1");
         addressCommentsField.sendKeys("TestComments");
         DeliveryDetailsPage.jsClick(submit);
-
+        Thread.sleep(5000);
     }
 
     private void startOrder() {
@@ -107,11 +107,11 @@ public class DeliveryDetailsPage extends BasePage {
     }
 
     private void addToCart() {
-        int product = random.nextInt(nextToProducts.size()-2);
+        int product = random.nextInt(nextToProducts.size() - 2);
         wait.until(ExpectedConditions.visibilityOfAllElements(nextToProducts));
         NextToTheCoffeePage.jsClick(addToCartButton.get(product));
         stringProductNme = productName.get(product).getText();
-        ExtentTestManager.getTest().log(Status.INFO,"You ordered: " + stringProductNme );
+        //ExtentTestManager.getTest().log(Status.INFO,"You ordered: " + stringProductNme );
         driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
     }
 }

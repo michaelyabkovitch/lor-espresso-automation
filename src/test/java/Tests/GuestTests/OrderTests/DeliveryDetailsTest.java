@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class DeliveryDetailsTest extends MainTest {
     @Test
-    public void DeliveryDetailsTesting(){
+    public void DeliveryDetailsTesting() throws InterruptedException {
         DeliveryDetailsPage deliveryDetailsPage = new DeliveryDetailsPage(driver);
         deliveryDetailsPage.startOrderDetails();
     }
