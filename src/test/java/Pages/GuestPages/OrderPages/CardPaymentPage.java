@@ -36,9 +36,6 @@ public class CardPaymentPage extends BasePage {
     @FindBy(id = "submitBtn")
     WebElement submitBtn;
 
-
-
-
     // Variables definition
     Random random = new Random();
     int yearsNum = 15;

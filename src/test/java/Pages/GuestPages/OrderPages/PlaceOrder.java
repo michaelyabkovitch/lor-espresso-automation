@@ -28,7 +28,7 @@ public class PlaceOrder extends BasePage {
     public void placeOrder() throws InterruptedException {
         termsAndContitions.click();
         submit.click();
-        //ExtentTestManager.getTest().log(Status.INFO,"Your number ordered is : " + numOrder.getText() );
+        ExtentTestManager.getTest().log(Status.INFO,"Your number ordered is : " + numOrder.getText() );
         System.out.println(numOrder.getText());
     }
 }

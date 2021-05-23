@@ -94,7 +94,7 @@ public class JacobsPage extends BasePage {
         }
     }
 
-    private void nameCompere() {
+    private void nameCompere() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         cartMenu.click();
         softAssert.assertTrue(cartProductName.get(1).getText().contains(stringProductNme));

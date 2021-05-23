@@ -111,7 +111,7 @@ public class DeliveryDetailsPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOfAllElements(nextToProducts));
         NextToTheCoffeePage.jsClick(addToCartButton.get(product));
         stringProductNme = productName.get(product).getText();
-        //ExtentTestManager.getTest().log(Status.INFO,"You ordered: " + stringProductNme );
+        ExtentTestManager.getTest().log(Status.INFO,"You ordered: " + stringProductNme );
         driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
     }
 }
