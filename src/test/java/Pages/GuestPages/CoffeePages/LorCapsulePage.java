@@ -61,7 +61,7 @@ public class LorCapsulePage extends BasePage {
         enterToPage();
         //continueAndClose();
         addToCart();
-        //nameCompere();
+        nameCompere();
         removeItem();
     }
 
@@ -102,7 +102,6 @@ public class LorCapsulePage extends BasePage {
     }
 
     public void removeItem () {
-        cartMenu.click(); // for enter to cart page without use nameCompere function
         removeButtonWindow.click();
         LorCapsulePage.waitAndClick(cancelButton.get(2));
         LorCapsulePage.waitAndClick(removeButtonWindow);
