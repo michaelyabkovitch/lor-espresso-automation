@@ -32,8 +32,7 @@ public class MainTest {
     public static final String RECORD_PATH = "./records";
     public static Date date = new Date();
     public static DateFormat dateFormat = new SimpleDateFormat("yy-MM-dd HH-mm-ss");
-    public static final String PATH = "https://storefront:diplo@staging-eu01-diplomat.demandware." +
-            "net/on/demandware.store/Sites-lor-Site/default/Home-Show";
+    public static final String PATH ="https://storefront:diplo@development-eu01-diplomat.demandware.net/on/demandware.store/Sites-lor-Site/iw_IL/Home-Show"; 
 
     // Code section
     @BeforeSuite

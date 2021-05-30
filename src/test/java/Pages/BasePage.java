@@ -35,6 +35,9 @@ public class BasePage extends PageObject{
     @FindBy(css = ".btn.d-flex.p-0.p-lg-4.js-otpLogin")
     WebElement helloGust;
 
+    //declarations
+    JavascriptExecutor js = (JavascriptExecutor) driver;
+
     // Functions
     public static void waitAndClick(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element)).click();
@@ -42,5 +45,12 @@ public class BasePage extends PageObject{
 
     public static void jsClick(WebElement element) {
         ((JavascriptExecutor)driver).executeScript("arguments[0].click();", element);
+    }
+
+      //michael add 10/3/21
+    public static void sendKeys(WebElement element , String string){
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        element.sendKeys(string);
+
     }
 }
