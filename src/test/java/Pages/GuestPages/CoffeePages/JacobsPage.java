@@ -75,7 +75,7 @@ public class JacobsPage extends BasePage {
     }
 
     private void addToCart() {
-        int product = random.nextInt(jacobsProducts.size() -1);
+        int product = random.nextInt(jacobsProducts.size() -2);
         wait.until(ExpectedConditions.visibilityOfAllElements(jacobsProducts));
 
         if (addToCartButton.get(product).isDisplayed()) {
