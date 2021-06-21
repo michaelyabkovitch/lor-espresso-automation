@@ -76,8 +76,8 @@ public class LorCapsulePage extends BasePage {
     }
 
     public void addToCart() {
-        int product = random.nextInt(lorProducts.size() -2);
         wait.until(ExpectedConditions.visibilityOfAllElements(lorProducts));
+        int product = random.nextInt(lorProducts.size() -2);
 
         if (addToCartButton.get(product).isDisplayed()) {
             LorCapsulePage.jsClick(addToCartButton.get(product));

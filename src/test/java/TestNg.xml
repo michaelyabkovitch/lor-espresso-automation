@@ -47,4 +47,9 @@
                 <class name="Tests.FooterTest"></class>
             </classes>
         </test>
+    <test name="Favorite item Test">
+        <classes>
+            <class name="Tests.RegisteredUserTests.FavoriteItemTest"></class>
+        </classes>
+    </test>
 </suite>
