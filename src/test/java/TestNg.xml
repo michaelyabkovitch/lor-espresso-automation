@@ -49,6 +49,7 @@
         </test>
     <test name="Favorite item Test">
         <classes>
+            <class name="Tests.RegisteredUserTests.EditDetailsTest"></class>
             <class name="Tests.RegisteredUserTests.FavoriteItemTest"></class>
         </classes>
     </test>
