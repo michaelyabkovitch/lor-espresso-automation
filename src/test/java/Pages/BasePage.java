@@ -47,7 +47,6 @@ public class BasePage extends PageObject{
         ((JavascriptExecutor)driver).executeScript("arguments[0].click();", element);
     }
 
-      //michael add 10/3/21
     public static void sendKeys(WebElement element , String string){
         wait.until(ExpectedConditions.elementToBeClickable(element));
         element.sendKeys(string);
