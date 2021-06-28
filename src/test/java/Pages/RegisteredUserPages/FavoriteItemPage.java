@@ -46,15 +46,22 @@ public class FavoriteItemPage extends BasePage {
     @FindBy(css = ".wishlist-delete")
     WebElement deleteBtn;
 
-    // Functions
+    // Sign Out
+    @FindBy(className = "user-button-lg")
+    WebElement backToUserPage;
+    @FindBy(css = "[href='/on/demandware.store/Sites-lor-Site/iw_IL/Login-Logout']")
+    List<WebElement> logoutBtn;
+
+    // Function
     public void favoriteItemTest() throws InterruptedException {
         enterToLorPage();
         addToFavorite();
         nameCompare();
         deleteList();
+        logout();
     }
 
-    public void enterToLorPage(){
+    public void enterToLorPage() throws InterruptedException {
         FavoriteItemPage.waitAndClick(lorCapsulePage);
     }
 
@@ -63,7 +70,6 @@ public class FavoriteItemPage extends BasePage {
         LorCapsulePage.jsClick(addToWishlistBtn.get(0));
         stringProductNme = productName.get(0).getText();
         System.out.println(stringProductNme);
-//        Thread.sleep(6000);
         driver.manage().timeouts().implicitlyWait(100000, TimeUnit.SECONDS);
     }
 
@@ -75,9 +81,13 @@ public class FavoriteItemPage extends BasePage {
         softAssert.assertAll();
     }
 
-    public void deleteList(){
+    public void deleteList() {
         deleteBtn.click();
     }
 
+    public void logout() {
+        backToUserPage.click();
+        FavoriteItemPage.waitAndClick(logoutBtn.get(1));
+    }
 }
 
