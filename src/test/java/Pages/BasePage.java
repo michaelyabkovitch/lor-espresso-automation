@@ -52,4 +52,5 @@ public class BasePage extends PageObject{
         element.sendKeys(string);
 
     }
+
 }

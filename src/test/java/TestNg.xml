@@ -28,6 +28,19 @@
         </classes>
     </test>
 
+    <test name="OrderActionsTests">
+      <classes>
+          <class name="Tests.GuestTests.OrderActionTest.OrderOver150NISTest"></class>
+      </classes>
+    </test>
+
+    <test name="coupons tests">
+        <classes>
+            <class name = "Tests.GuestTests.OrderActionTest.OrderWithCouponTest"></class>
+        </classes>
+    </test>
+
+
     <test name="Order tests">
         <classes>
             <class name="Tests.GuestTests.OrderTests.DeliveryDetailsTest"></class>

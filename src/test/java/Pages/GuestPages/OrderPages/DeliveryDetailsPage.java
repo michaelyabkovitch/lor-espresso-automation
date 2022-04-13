@@ -63,6 +63,8 @@ public class DeliveryDetailsPage extends BasePage {
     List<WebElement> addToCartButton;
     @FindBy(className = "pdp-link")
     List<WebElement> productName;
+    @FindBy(css="[data-error='יש להסכים לתנאים ולהגבלות']")
+    WebElement acceptBtn;
 
 
     // Variables
@@ -98,6 +100,7 @@ public class DeliveryDetailsPage extends BasePage {
         addressApartmentField.sendKeys("2");
         floorField.sendKeys("1");
         addressCommentsField.sendKeys("TestComments");
+        DeliveryDetailsPage.jsClick(acceptBtn);
         DeliveryDetailsPage.jsClick(submit);
         Thread.sleep(5000);
     }
