@@ -17,18 +17,21 @@ public class PlaceOrder extends BasePage {
         super(driver, wait);
     }
 
-    @FindBy(css = "#terms-approval-payment-step")
-    WebElement termsAndContitions;
-    @FindBy(css = "[value='place-order']")
-    WebElement submit;
-    @FindBy(xpath = "//*[@class='order-thank-you-email-msg text-center mb-5']/span")
+//    @FindBy(css = "#terms-approval-payment-step")
+//    WebElement termsAndContitions;
+//    @FindBy(css = ".btn.btn-primary.order-confirmation-continue-shopping")
+//    WebElement backTositeBtn;
+    @FindBy(xpath = "//*[@id=\"maincontent\"]/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/p")
     WebElement numOrder;
+    @FindBy(css = "[href='/on/demandware.store/Sites-lor-Site/iw_IL/Home-Show']")
+    WebElement backToMainPage;
 
 
     public void placeOrder() throws InterruptedException {
-        termsAndContitions.click();
-        submit.click();
+//        termsAndContitions.click();
+//        backTositeBtn.click();
         ExtentTestManager.getTest().log(Status.INFO,"Your number ordered is : " + numOrder.getText() );
         System.out.println(numOrder.getText());
+        backToMainPage.click();
     }
 }
